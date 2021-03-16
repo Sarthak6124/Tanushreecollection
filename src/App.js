@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
+import {Route} from 'react-router'
+import login from './components/login/login'
+import dashboard from './components/dashboard/dashboard';
+import billing from  '../src/components/billing/billing';
+import warehouse from './components/warehouse/warehouse';
+import sidebar from '../src/layout/sidebar/sidebar';
 
-function App() {
+class  App extends Component  {
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+<body>
+<div>
+
+<Route exact path="/" component={login} ></Route>
+<Route  path="/billing" component={billing} ></Route>
+<Route  path="/warehouse" component={warehouse} ></Route>
+<Route  path="/" component={sidebar} ></Route>
+<Route path="/dashboard" component={dashboard} ></Route>
+
+</div>
+</body> );
+  }
 }
 
 export default App;
